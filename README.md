@@ -4,15 +4,18 @@
 
 ## 目录
 
-### [需求描述](requirement.md)（待添加）
+### [需求描述](requirement.md)（待完善）
 
 ### 设计
 - 概要设计
 - 详细设计
-- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)
+- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)（首页初步完成）
 
 ### 开发
-- [页面开发]()（待添加）
+- 页面开发
+ - [首页](首页.html)（待完善）
+ - [自信息量函数曲线绘制]()（待添加）
+ - [熵函数曲线绘制]()（待添加）
 - [程序开发]()（待添加）
 
 ### 测试
