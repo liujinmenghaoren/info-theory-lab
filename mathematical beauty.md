@@ -1,7 +1,7 @@
 # 数学之美
 本节实验内容是《数学之美》文献阅读，下面是一些相关的介绍和页面链接。
 
-[返回首页](首页.html)
+[返回首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)
 
 ### 文献简介
 
