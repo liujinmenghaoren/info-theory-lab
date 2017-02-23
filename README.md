@@ -13,9 +13,10 @@
 
 ### 开发
 - 页面开发
- - [首页](首页.html)（待完善）
- - [自信息量函数曲线绘制](自信息量函数曲线绘制.html)（待完善）
+ - [首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)（待完善）
+ - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/自信息量函数曲线绘制.html)（待完善）
  - [熵函数曲线绘制]()（待添加）
+ - [数学之美文献阅读](mathematical beauty.md)
 - [程序开发]()（待添加）
 
 ### 测试
