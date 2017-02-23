@@ -17,6 +17,7 @@
  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/自信息量函数曲线绘制.html)（待完善）
  - [熵函数曲线绘制]()（待添加）
  - [数学之美文献阅读](mathematical beauty.md)
+ - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)
 - [程序开发]()（待添加）
 
 ### 测试
