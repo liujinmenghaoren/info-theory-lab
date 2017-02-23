@@ -18,6 +18,7 @@
  - [熵函数曲线绘制]()（待添加）
  - [数学之美文献阅读](mathematical beauty.md)
  - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)
+ - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)
 - [程序开发]()（待添加）
 
 ### 测试
