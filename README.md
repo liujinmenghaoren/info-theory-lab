@@ -13,12 +13,13 @@
 
 ### 开发
 - 页面开发
- - [首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)（待完善）
- - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/自信息量函数曲线绘制.html)（待完善）
+ - [首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)（还有几个链接没有添加）
+ - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/自信息量函数曲线绘制.html)（还不能绘制曲线图像）
  - [熵函数曲线绘制]()（待添加）
  - [数学之美文献阅读](mathematical beauty.md)
- - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)
- - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)
+ - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（还没有信道仿真软件呢）
+ - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
+ - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/Series channel.html)（没有实验原理，没有实验环境）
 - [程序开发]()（待添加）
 
 ### 测试
