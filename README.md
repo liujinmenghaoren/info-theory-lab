@@ -20,6 +20,7 @@
  - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（还没有信道仿真软件呢）
  - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
  - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/Series channel.html)（没有实验原理，没有实验环境）
+ - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)（没有实验原理，没有实验环境）
 - [程序开发]()（待添加）
 
 ### 测试
