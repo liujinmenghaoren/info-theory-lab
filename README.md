@@ -13,7 +13,7 @@
 
 ### 开发
 - 页面开发
- - [首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)（还有几个链接没有添加）
+ - [首页](https://liujinmenghaoren.github.io/info-theory-lab/%E9%A6%96%E9%A1%B5.html)（等待最后检验）
  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/自信息量函数曲线绘制.html)（还不能绘制曲线图像）
  - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（还不能绘制图像）
  - [数学之美文献阅读](mathematical beauty.md)
