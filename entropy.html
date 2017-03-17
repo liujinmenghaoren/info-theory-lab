@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>熵函数曲线绘制</title>
+		<style>
+			#two{
+				background: #ddd;
+				width: 300px;
+				height: 600px;
+				margin: 50px auto;
+			}
+			#three{
+				background: #ddd;
+				width: 300px;
+				height: 600px;
+				margin: 50px auto;
+			}
+			path{
+				fill: none;
+				stroke: #4682b4;
+				stroke-width: 2;
+			}
+			.domain,.tick line{
+				stroke:gray;
+				stroke-width: 1;
+			}
+			body{
+            margin: 0;
+            padding: 0;
+        	}
+        	#main {
+            	width: 800px;
+            	height: 300px;
+            	margin: 0 auto;
+        	}
+        	 
+        	h1 {
+            	text-align: center;
+        	}
+        	#two,#button2{
+        		position: absolute;
+        		top: 350px;
+        		left: 200px;
+        	}
+        	#three,#main3{
+        		position: absolute;
+        		top: 350px;
+        		left: 800px;
+        	}
+		</style>	
+	</head>
+	
+	<body>
+		<div id="main">
+        <h1>熵函数曲线绘制</h1>
+        <p>本实验在网页上绘制熵函数曲线的图像</p>
+        <p>
+                实验内容：
+        </p>
+        <ul>
+            <li>熵就是平均自信息量。</li>
+            <li>其定义为：H(X)=E[I(xi)]=E[-log p(xi)]。</li>
+            <li>本实验讨论的二元熵的公式为：H(X)= - p*log p - (1-p)*log (1-p)。</li>
+             <li>和自信息量的类似，我们给二元熵的自变量 p 一个密度，来确定 p 的取值。</li>
+            <li>本实验讨论的三元熵的公式为：H(X)= - p<sub>1</sub>*log p<sub>1</sub> - p<sub>2</sub>*log p<sub>2</sub> - (1-p<sub>1</sub>-p<sub>2</sub>)*log (1-p<sub>1</sub>-p<sub>2</sub>)。</li>
+            <li>和自信息量的类似，我们给三元熵的自变量 p<sub>1</sub>和 p<sub>2</sub>一个相同的密度，来确定它们的取值。</li>
+            <li>同学们可以自己用 Excel 和 Matlab 软件绘制。</li>
+        </ul>
+        <hr />
+   	    </div>
+   	    
+   	    <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+   	    
+   	    <!-- 下面是对二元熵曲线进行定义 -->
+   	    <div id="button2">
+   	    	 请输入二元熵的自变量的密度：
+        <input type="text" id="level" title="lvl" placeholder="10"/>
+        <input type="button" value="确定" onclick="I()" />
+   	    </div>
+		<div id=two></div>
+	
+		<script type="text/javascript">
+//		document.onkeydown=keyListener;  //	用keyListener方法注册按键事件
+//      function keyListener(e){		// 	当按下回车键，执行我们的代码
+//  	if(e.keyCode == 13){
+//   		I();
+//  	}
+//  }
+
+        function pri(n){	
+        	document.getElementById("two").innerHTML = "";
+        	//定义总体的尺度标准
+	    	var width = 300,
+				height = 600,
+				margin = {left:50,top:30,right:20,bottom:20},
+				g_width = width-margin.left-margin.right,
+				x_width = g_width+10,
+				x_height = 20,
+				g_height = height-margin.top-margin.bottom;
+			
+			//使svg元素的尺寸和div尺寸一样
+			var svg = d3.select("#two")
+			.append("svg:svg")
+			.attr("width",width)
+			.attr("height",height)
+			
+			//使绘图区域g相对于svg向内缩进一些
+			var g = d3.select("svg")
+			.append("g")
+			.attr("transform","translate("+margin.left+","+margin.top+")")
+			
+			//定义数据
+			var data = new Array(n);
+			data[0]=data[n]=0;
+			for (var i=1;i<=n-1;i++){
+				p=i/n;
+				data[i]=-p*Math.log2(p)-(1-p)*Math.log2(1-p);
+			}
+			
+			
+			//定义x和y的取值
+			var scale_x = d3.scale.linear()
+			.domain([0,1])
+			.range([0,g_width])
+			var scale_y = d3.scale.linear()
+			.domain([0,1])
+			.range([g_height,0])
+			
+			//所绘制的图形的x值取数组的序号/10，y值取序号所对应的数
+			var line_generator = d3.svg.line()
+			.x(function(d,i){return scale_x(i/n);})//0,1,2,3...
+			.y(function(d){return scale_y(d);})//1,3,5...
+			.interpolate("cardinal")//光滑的曲线
+			
+			//用这种绘图命令把各个点连起来
+			d3.select("g")
+			.append("path")
+			.attr("d",line_generator(data))//d="M1,0L20,40L40,50L100,100L0,200",d-path data
+			
+			//定义x轴和y轴
+			var x_axis = d3.svg.axis().scale(scale_x),
+			y_axis = d3.svg.axis().scale(scale_y).orient("left");
+			
+			//对x轴进行偏移
+			g.append("g")
+			.call(x_axis)
+			.attr("transform","translate(0,"+g_height+")")
+			.append("text")
+			.text("P")
+			.attr("transform","translate("+x_width+","+x_height+")")
+			
+			//对y轴进行偏移以及定义y轴上的文字
+			g.append("g")
+			.call(y_axis)
+			.append("text")
+			.text("I(x)")
+			.attr("transform","translate("+margin.top+",0)")
+			.attr("text-anchor","end")
+			.attr("dy","1em")
+	}
+        
+		function err(msg) {
+    	document.getElementById("two").innerHTML = msg;
+    }
+    
+	    function I(){
+			var n = document.getElementById('level').value;   // 代表密度
+	
+		   	if (n > 0 && n <= 1000)	{	//当输入0-1000之间的数时，绘制图像
+		   		pri(n);
+		   	}
+		   	else if(n == "")	{	//当输入为空时，默认绘制密度为10的图像
+		  		pri(10);
+		   	}
+			else if(n < 0)	{	//当输入小于0时，提示错误
+				err("无法计算概率！");
+		   	}
+			else if(n > 1000)	{	//当输入大于1000时，提示错误
+				err("概率分布密度太大，不宜计算！");
+		  	}
+		  	else	{	//当输入非法字符时，提示错误
+				err("请输入0到1000之间的数字！");
+		  	}
+		}
+		</script>
+		
+		
+		<!-- 下面是对三元熵曲线进行定义 -->
+		<div id="main3">
+		请输入三元熵的自变量的密度：
+        <input type="text" id="level3" title="lvl3" placeholder="10"/>
+        <input type="button" value="确定" onclick="H3()" />
+        <input type="button" value="返回首页" onclick="window.location.href='home.html'" />
+        </div>
+		<div id=three></div>
+		
+		<script type="text/javascript">
+//		document.onkeydown=keyListener;  //	用keyListener方法注册按键事件
+//      function keyListener(e){		// 	当按下回车键，执行我们的代码
+//  	if(e.keyCode == 13){
+//   		H3();
+//  	}
+//  }
+
+        function pri3(n){	
+        	document.getElementById("three").innerHTML = "";
+        	//定义总体的尺度标准
+	    	var width = 300,
+				height = 600,
+				margin = {left:50,top:30,right:20,bottom:20},
+				g_width = width-margin.left-margin.right,
+				x_width = g_width+10,
+				x_height = 20,
+				g_height = height-margin.top-margin.bottom;
+			
+			//使svg元素的尺寸和div尺寸一样
+			var svg = d3.select("#three")
+			.append("svg:svg")
+			.attr("width",width)
+			.attr("height",height)
+			
+			//使绘图区域g相对于svg向内缩进一些
+			var g = d3.select("svg")
+			.append("g")
+			.attr("transform","translate(800+"+margin.left+","+margin.top+")")
+			
+			//定义数据
+			var data = new Array(n);	
+			for (var i=0;i<=n-1;i++){
+				data[i]=-Math.log2((i+1)/n);
+			}
+			
+			//定义x和y的取值
+			var scale_x = d3.scale.linear()
+			.domain([0,1])
+			.range([0,g_width])
+			var scale_y = d3.scale.linear()
+			.domain([0,Math.ceil(data[0])])
+			.range([g_height,0])
+			
+			//所绘制的图形的x值取数组的序号/10，y值取序号所对应的数
+			var line_generator = d3.svg.line()
+			.x(function(d,i){return scale_x((i+1)/n);})//0,1,2,3...
+			.y(function(d){return scale_y(d);})//1,3,5...
+			.interpolate("cardinal")//光滑的曲线
+			
+			//用这种绘图命令把各个点连起来
+			d3.select("g")
+			.append("path")
+			.attr("d",line_generator(data))//d="M1,0L20,40L40,50L100,100L0,200",d-path data
+			
+			//定义x轴和y轴
+			var x_axis = d3.svg.axis().scale(scale_x),
+			y_axis = d3.svg.axis().scale(scale_y).orient("left");
+			
+			//对x轴进行偏移
+			g.append("g")
+			.call(x_axis)
+			.attr("transform","translate(800,"+g_height+")")
+			.append("text")
+			.text("P")
+			.attr("transform","translate(800+"+x_width+","+x_height+")")
+			
+			//对y轴进行偏移以及定义y轴上的文字
+			g.append("g")
+			.call(y_axis)
+			.append("text")
+			.text("I(x)")
+			.attr("transform","translate(800+"+margin.top+",0)")
+			.attr("text-anchor","end")
+			.attr("dy","1em")
+	}
+        
+		function err3(msg) {
+    	document.getElementById("three").innerHTML = msg;
+    }
+    
+	    function H3(){
+			var n = document.getElementById('level3').value;   // 代表密度
+	
+		   	if (n > 0 && n <= 1000)	{	//当输入0-1000之间的数时，绘制图像
+		   		pri3(n);
+		   	}
+		   	else if(n == "")	{	//当输入为空时，默认绘制密度为10的图像
+		  		pri3(10);
+		   	}
+			else if(n < 0)	{	//当输入小于0时，提示错误
+				err3("无法计算概率！");
+		   	}
+			else if(n > 1000)	{	//当输入大于1000时，提示错误
+				err3("概率分布密度太大，不宜计算！");
+		  	}
+		  	else	{	//当输入非法字符时，提示错误
+				err3("请输入0到1000之间的数字！");
+		  	}
+		}
+		</script>
+	</body>
+</html>
