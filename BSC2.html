@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BSC 信道仿真模拟</title>
+		<style>
+			#container{
+				background: #ddd;
+				width: 300px;
+				height: 600px;
+				margin: 0 auto;
+			}
+			path{
+				fill: none;
+				stroke: #4682b4;
+				stroke-width: 2;
+			}
+			.domain,.tick line{
+				stroke:gray;
+				stroke-width: 1;
+			}
+			body {
+				margin: 0;
+            	padding: 0;
+            }
+            .head ,.down {
+            	width: 800px;
+            	height: 300px;
+            	margin: 0 auto;
+        	}
+        	h1 {
+            	text-align: center;
+        	}
+        	img{
+        		height: 70px;
+        		width: 170px;
+        	}
+        	.left{
+        		height: 500px;
+        		width: 250px;
+        		float: left;
+        		background-color: #7FFF00;
+        	}
+        	.down{
+        		position: relative;
+        	}
+        	.right{
+        		height: 500px;
+        		width: 250px;
+        		float: right;
+        		background-color: #7FFF00;
+        	}
+        	.cent{
+        		width: 100%;
+        		position: absolute;
+        		left: 320px;
+        	}
+		</style>	
+	</head>
+	<body>
+		<div class="head">
+			<h1>BSC 信道仿真模拟</h1>
+        <p>本实验在网页上模拟BSC信道传输信息的情况</p>
+        <p>
+                实验内容：
+        </p>
+        <ul>
+            <li>二元对称信道简记为 BSC 信道。</li>
+            <li>其信道为<br /><img src="image/BSC.png" /></li>
+            <li>同学们可以自己思考一下这个页面是怎么实现的。</li>
+        </ul>
+        <hr />
+       
+            请输入 p 的取值密度：
+        <input type="text" id="level" title="lvl" placeholder="10"/>
+        <input type="button" value="弹出所选的值" onclick="aler()" />
+        <input type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
+		</div>
+		<div class="down">
+		<div class="left">
+			
+		</div>
+		<div class="cent">
+			错误概率为： <select id="sele">
+				<option>0</option>
+				<option>0.1</option>
+				<option>0.2</option>
+				<option>0.3</option>
+				<option>0.4</option>
+				<option>0.5</option>
+				<option>0.6</option>
+				<option>0.7</option>
+				<option>0.8</option>
+				<option>0.9</option>
+				<option>1</option>
+				
+			</select>
+		</div>
+		<div class="right">
+			
+		</div>
+		</div>
+		
+		<script>
+			
+			function aler(){
+				var n = document.getElementById('sele').value;
+				alert(n);
+			}
+			
+		</script>
+	</body>
+</html>
