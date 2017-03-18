@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>BSC 信道仿真模拟</title>
+		<title>Huffman 编码————压缩与解压缩</title>
 		<style>
 			#container{
 				background: #ddd;
@@ -24,7 +24,7 @@
             	padding: 0;
             }
             .head ,.down {
-            	width: 900px;
+            	width: 800px;
             	height: 300px;
             	margin: 0 auto;
         	}
@@ -53,35 +53,14 @@
         	.cent{
         		width: 100%;
         		position: absolute;
-        		left: 300px;
-        	}
-        	#yes{
-        		margin-left: 200px;
-        	}
-        	#may{
-        		position: absolute;
-        		top: 320px;
-        		left: 250px;
-        		font-size: 20px;
-        		height: 50px;
-        		width: 150px;
-        		background-color: cadetblue;
-        	}
-        	#maybe{
-        		position: absolute;
-        		top: 320px;
-        		left: 50px;
-        		font-size: 20px;
-        		height: 50px;
-        		width: 150px;
-        		background-color: cadetblue;
+        		left: 320px;
         	}
 		</style>	
 	</head>
 	<body>
 		<div class="head">
-			<h1>BSC 信道仿真模拟</h1>
-        <p>本实验在网页上模拟BSC信道传输信息的情况</p>
+			<h1>Huffman 编码之压缩与解压缩</h1>
+        <p>本实验在网页上模拟用 Huffman 编码对英文文本进行压缩与解压缩的情况</p>
         <p>
                 实验内容：
         </p>
@@ -92,52 +71,34 @@
         </ul>
         <hr />
        
+            
         
+        <input type="button" value="弹出输入的内容" onclick="aler()" />
+        <input type="button" value="返回实验说明页" onclick="window.location.href='Huffman.html'" />
 		</div>
 		<br  />
 		<div class="down">
 		<div class="left">
-			
+			请输入您的英文文本：
+			<textarea id="textin" rows="5">hello world！</textarea>
 		</div>
 		<div class="cent">
-			请输入错误概率 p： 
-			<!--<select id="sele">
-				<option>0</option>
-				<option>0.1</option>
-				<option>0.2</option>
-				<option>0.3</option>
-				<option>0.4</option>
-				<option>0.5</option>
-				<option>0.6</option>
-				<option>0.7</option>
-				<option>0.8</option>
-				<option>0.9</option>
-				<option>1</option>
-			</select>-->
 			
-			
-			<input id="code" type="number" min="0" max="1" step="0.01" value="0"  />
-			<br  /><br  />
-			<button id="yes" type="button" onclick="encode()">确定</button>
 		</div>
 		<div class="right">
-			
+			您的压缩后文本是：
+			<textarea id="textout" rows="5"></textarea>
 		</div>
-		
-		<input id="may" type="button" value="弹出所选的值" onclick="aler()" />
-        <input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
-        
 		</div>
-		<br  />
-		
-		<br  /><br  />
+		<br  /><br  /><br  />
 		
 		<script>
 			
-			function encode(){
-				var str = document.getElementById("code").value;
+			function aler(){
+				var str = document.getElementById('textin').value;
 				alert(str);
 			}
+			
 		</script>
 	</body>
 </html>
