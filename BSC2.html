@@ -37,7 +37,7 @@
         	}
         	.left{
         		height: 300px;
-        		width: 280px;
+        		width: 300px;
         		float: left;
         		background-color: #7FFF00;
         	}
@@ -46,14 +46,14 @@
         	}
         	.right{
         		height: 300px;
-        		width: 280px;
+        		width: 300px;
         		float: right;
         		background-color: #7FFF00;
         	}
         	.cent{
         		width: 100%;
         		position: absolute;
-        		left: 300px;
+        		left: 320px;
         	}
         	#yes{
         		margin-left: 200px;
@@ -95,33 +95,28 @@
         
 		</div>
 		<br  />
+		
 		<div class="down">
+			
 		<div class="left">
+			<svg class="first" xmls="http://www.w3.org/2000/svg" width="300" height="300">
+				<!--<circle cx="150" cy="150" r="100" fill="#fea">-->
+				<rect x="30" y="30" width="240" height="240" rx="0" ry="0"  fill="#fea">
+			</svg>
 			
 		</div>
+		
 		<div class="cent">
-			请输入错误概率 p： 
-			<!--<select id="sele">
-				<option>0</option>
-				<option>0.1</option>
-				<option>0.2</option>
-				<option>0.3</option>
-				<option>0.4</option>
-				<option>0.5</option>
-				<option>0.6</option>
-				<option>0.7</option>
-				<option>0.8</option>
-				<option>0.9</option>
-				<option>1</option>
-			</select>-->
-			
-			
+			请输入错误概率 p： 	
 			<input id="code" type="number" min="0" max="1" step="0.01" value="0"  />
 			<br  /><br  />
 			<button id="yes" type="button" onclick="encode()">确定</button>
 		</div>
+		
 		<div class="right">
-			
+			<svg class="second" xmls="http://www.w3.org/2000/svg" width="300" height="300">
+				<rect x="30" y="30" width="240" height="240" rx="0" ry="0"  fill="#fea">
+			</svg>
 		</div>
 		
 		<input id="may" type="button" value="弹出所选的值" onclick="aler()" />
@@ -135,8 +130,13 @@
 		<script>
 			
 			function encode(){
-				var str = document.getElementById("code").value;
-				alert(str);
+				var num = document.getElementById("code").value;
+				var errnum=num*5760;
+				for (i=1;i<=errnum;i++){
+					
+				}
+				
+				alert(errnum);
 			}
 		</script>
 	</body>
