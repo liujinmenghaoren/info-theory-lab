@@ -27,8 +27,6 @@
  
  - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)（可以得到码表，但是还不能编码和译码。）
  
- - [数学之美文献阅读](https://liujinmenghaoren.github.io/info-theory-lab/mathematical beauty.html)（这个不要了）
- 
 - [程序开发]()（待添加）
  - 测试
 
