@@ -13,7 +13,7 @@
 
 ### 开发
 - 页面开发
- - [首页](https://liujinmenghaoren.github.io/info-theory-lab/home.html)（）
+ - [首页](https://liujinmenghaoren.github.io/info-theory-lab/home.html)
  
  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/selfINfo.html)（基本完成）
  
