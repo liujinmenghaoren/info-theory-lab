@@ -13,15 +13,24 @@
 
 ### 开发
 - 页面开发
- - [首页](https://liujinmenghaoren.github.io/info-theory-lab/home.html)（基本完成）
+ - [首页](https://liujinmenghaoren.github.io/info-theory-lab/home.html)（）
+ 
  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/selfINfo.html)（基本完成）
- - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（还不能绘制图像）
- - [数学之美文献阅读](https://liujinmenghaoren.github.io/info-theory-lab/mathematical beauty.html)
- - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（还没有信道仿真软件呢）
+ 
+ - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/Series channel.html)（基本完成）
+ 
+ - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（一元熵函数已经完成，二元熵函数的三维图还没有着落呢）
+ 
+ - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（未实现）
+ 
  - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
- - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/Series channel.html)（没有实验原理，没有实验环境）
- - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)（没有实验原理，没有实验环境）
+ 
+ - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)（可以得到码表，但是还不能编码和译码。）
+ 
+ - [数学之美文献阅读](https://liujinmenghaoren.github.io/info-theory-lab/mathematical beauty.html)（这个不要了）
+ 
 - [程序开发]()（待添加）
+ - 测试
 
 ### 测试
 - 黑盒测试
