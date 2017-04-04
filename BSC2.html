@@ -2,142 +2,181 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>BSC 信道仿真模拟</title>
+		<title>BSC信道仿真模拟</title>
 		<style>
-			#container{
-				background: #ddd;
-				width: 300px;
-				height: 600px;
+			body{
+				width: 1100px;
 				margin: 0 auto;
+				
 			}
-			path{
-				fill: none;
-				stroke: #4682b4;
-				stroke-width: 2;
+			canvas{
+				border: solid 1px #000;
+				display: block;
 			}
-			.domain,.tick line{
-				stroke:gray;
-				stroke-width: 1;
-			}
-			body {
-				margin: 0;
-            	padding: 0;
-            }
-            .head ,.down {
-            	width: 900px;
-            	height: 300px;
-            	margin: 0 auto;
-        	}
-        	h1 {
-            	text-align: center;
-        	}
-        	img{
-        		height: 70px;
-        		width: 170px;
-        	}
-        	.left{
-        		height: 300px;
-        		width: 300px;
-        		float: left;
-        		background-color: #7FFF00;
-        	}
-        	.down{
+			.all{
         		position: relative;
         	}
-        	.right{
-        		height: 300px;
-        		width: 300px;
-        		float: right;
-        		background-color: #7FFF00;
-        	}
-        	.cent{
+			#input{
+				float: left;
+			}
+			#output{
+				float: right;
+			}
+			
+			.cent{
         		width: 100%;
         		position: absolute;
-        		left: 320px;
-        	}
-        	#yes{
-        		margin-left: 200px;
-        	}
-        	#may{
-        		position: absolute;
-        		top: 320px;
-        		left: 250px;
-        		font-size: 20px;
-        		height: 50px;
-        		width: 150px;
-        		background-color: cadetblue;
+        		left: 360px;
+        		top: 80px;
         	}
         	#maybe{
         		position: absolute;
-        		top: 320px;
-        		left: 50px;
+        		top: 330px;
+        		left: 590px;
         		font-size: 20px;
         		height: 50px;
         		width: 150px;
         		background-color: cadetblue;
         	}
-		</style>	
+		</style>
 	</head>
 	<body>
-		<div class="head">
-			<h1>BSC 信道仿真模拟</h1>
-        <p>本实验在网页上模拟BSC信道传输信息的情况</p>
-        <p>
-                实验内容：
-        </p>
-        <ul>
-            <li>二元对称信道简记为 BSC 信道。</li>
-            <li>其信道为<br /><img src="image/BSC.png" /></li>
-            <li>同学们可以自己思考一下这个页面是怎么实现的。</li>
-        </ul>
-        <hr />
-       
-        
-		</div>
-		<br  />
-		
-		<div class="down">
-			
-		<div class="left">
-			<svg class="first" xmls="http://www.w3.org/2000/svg" width="300" height="300">
-				<!--<circle cx="150" cy="150" r="100" fill="#fea">-->
-				<rect x="30" y="30" width="240" height="240" rx="0" ry="0"  fill="#fea">
-			</svg>
-			
-		</div>
-		
-		<div class="cent">
-			请输入错误概率 p： 	
-			<input id="code" type="number" min="0" max="1" step="0.01" value="0"  />
-			<br  /><br  />
-			<button id="yes" type="button" onclick="encode()">确定</button>
-		</div>
-		
-		<div class="right">
-			<svg class="second" xmls="http://www.w3.org/2000/svg" width="300" height="300">
-				<rect x="30" y="30" width="240" height="240" rx="0" ry="0"  fill="#fea">
-			</svg>
-		</div>
-		
-		<input id="may" type="button" value="弹出所选的值" onclick="aler()" />
-        <input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
-        
-		</div>
-		<br  />
-		
-		<br  /><br  />
-		
+		<script type="text/javascript" src="js/getcanvaspixelcolor.js"></script>
 		<script>
-			
-			function encode(){
-				var num = document.getElementById("code").value;
-				var errnum=num*5760;
-				for (i=1;i<=errnum;i++){
-					
-				}
-				
-				alert(errnum);
-			}
-		</script>
+        	// 定义所有的全局变量
+	        // 原始表现
+	        window.onload = function(){
+	        	// 下面是对输入窗口的绘制
+	        	var canvas1 = document.getElementById('canvas1');
+	        	var context1 = canvas1.getContext('2d');//使用context进行绘制
+	        	for (var i=0;i<100;i++){
+	        		for (var j=0;j<100;j++){//i是列数，j是行数。
+	        			if((i+j)%2 == 0){
+	        				context1.fillStyle='#000';
+							context1.beginPath();
+							context1.fillRect(3*i,3*j,3,3);
+							context1.closePath();
+							context1.fill();
+	        			}else{
+	        				context1.fillStyle='#fff';
+							context1.beginPath();
+							context1.fillRect(3*i,3*j,3,3);
+							context1.closePath();
+							context1.fill();
+	        			}
+	        		}
+	        	}	
+	        	// 下面是对输出窗口的绘制
+	        	var canvas2 = document.getElementById('canvas2');
+	        	var context2 = canvas2.getContext('2d');//使用context进行绘制
+	        	for (var k=0;k<100;k++){
+	        		for (var l=0;l<100;l++){//i是列数，j是行数。
+	        			if((k+l)%2 == 0){
+	        				context2.fillStyle='#000000';
+							context2.beginPath();
+							context2.fillRect(3*k,3*l,3,3);
+							context2.closePath();
+							context2.fill();
+	        			}else{
+	        				context2.fillStyle='#FFFFFF';
+							context2.beginPath();
+							context2.fillRect(3*k,3*l,3,3);
+							context2.closePath();
+							context2.fill();
+	        			}
+	        		}
+	        	}
+	        }	
+	        	
+	        //用概率产生变换个数
+	        function p(){
+	        	var p = document.getElementById('in').value;
+	        	return p1 = 10000*p;
+	        }
+	       
+	        // 产生随机数
+	        function randomFn(min,max){
+	        	return Math.round((Math.random()*(max-min))+min);
+	        }
+	        var arr1 = [];
+	        // 产生不重复的符合要求的数组
+	        function rou(){
+	        	p()
+	        	//产生第一个数组，表示x坐标
+	        	while(arr1.length<p1){
+	        		var aa = randomFn(0,9999);
+	        		var onOff = true;
+	        		for (var i=0;i<arr1.length;i++){
+	        			if(arr1[i] == aa){
+	        				onOff = false;
+	        				break;
+	        			}else {
+	        				onOff = true;
+	        			}
+	        		}
+	        		if(onOff){
+	        			arr1.push(aa);
+	        		}
+	        	}
+//	        	alert(arr1);
+//	        	alert(arr2);
+	        }
+	        	
+	        // 检验随机位置的颜色
+	        function change(){
+	        	rou();
+	        	var n = arr1.length;
+	        	alert(n);
+		        var num,lie,hang,x,y;
+		        var canvas3 = document.getElementById('canvas2');
+			    var context3 = canvas3.getContext('2d');//使用context进行绘制
+		        for (var i=0;i<n;i++){
+		        	num = arr1[i];
+		        	lie = num%100;
+		        	hang = (num-lie)/100;
+		        	x=3*lie;
+		        	y=3*hang
+//		        	alert(x);
+			        	var hexColor = document.getElementById("canvas2").getPixelColor(x, y).hex;
+//			        	alert(hexColor);
+			        	if(hexColor == '#000000'){
+			        		context3.fillStyle='#FFFFFF';
+							context3.globalCompositeOperation="source-over";
+							context3.beginPath();
+							context3.fillRect(x,y,3,3);
+							context3.closePath();
+							context3.fill();
+			        	}else{
+			        		context3.fillStyle='#000000';
+							context3.globalCompositeOperation="source-over";
+							context3.beginPath();
+							context3.fillRect(x,y,3,3);
+							context3.closePath();
+							context3.fill();
+			        	}
+	        	}
+		    }
+        </script>
+ 		<div class="all">
+ 		<div id="input">
+        	<h1>这是信源图片</h1>
+        	<canvas id="canvas1" width="300" height="300"></canvas>
+        </div>
+        
+        <div class="cent">
+			请输入错误概率 p： 	
+			<input id="in" type="number" min="0" max="1" step="0.01" value="0"  />
+	
+			<button id="yes" type="button" onclick="change()">确定</button>
+			<p>（请变换一次数值前刷新页面）</p>
+			<input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
+		</div>
+        
+        <div id="output">
+        	<h1>这是接收到的图片</h1>
+        	<canvas id="canvas2" width="300" height="300"></canvas>
+        	
+        </div>
+     	</div>   
 	</body>
 </html>
