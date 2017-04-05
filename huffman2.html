@@ -1,104 +1,187 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Huffman 编码————压缩与解压缩</title>
-		<style>
-			#container{
-				background: #ddd;
-				width: 300px;
-				height: 600px;
-				margin: 0 auto;
-			}
-			path{
-				fill: none;
-				stroke: #4682b4;
-				stroke-width: 2;
-			}
-			.domain,.tick line{
-				stroke:gray;
-				stroke-width: 1;
-			}
-			body {
-				margin: 0;
-            	padding: 0;
-            }
-            .head ,.down {
-            	width: 800px;
-            	height: 300px;
-            	margin: 0 auto;
-        	}
-        	h1 {
-            	text-align: center;
-        	}
-        	img{
-        		height: 70px;
-        		width: 170px;
-        	}
-        	.left{
-        		height: 300px;
-        		width: 280px;
-        		float: left;
-        		background-color: #7FFF00;
-        	}
-        	.down{
-        		position: relative;
-        	}
-        	.right{
-        		height: 300px;
-        		width: 280px;
-        		float: right;
-        		background-color: #7FFF00;
-        	}
-        	.cent{
-        		width: 100%;
+<head>
+　　<title>哈夫曼编码</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <style>
+    	body{
+    		margin: 50px 150px;
+    		position: relative;
+    	}
+    	#input{
+    		float: left;
+    	}
+    	#duizhao{
+    		float: right;
+    	}
+    	#zip{
+    		
+    		margin: 0 400px;
+    	}
+    	#maybe{
         		position: absolute;
-        		left: 320px;
+        		top: 380px;
+        		left: 918px;
+        		font-size: 20px;
+        		height: 50px;
+        		width: 150px;
+        		background-color: cadetblue;
         	}
-		</style>	
-	</head>
-	<body>
-		<div class="head">
-			<h1>Huffman 编码之压缩与解压缩</h1>
-        <p>本实验在网页上模拟用 Huffman 编码对英文文本进行压缩与解压缩的情况</p>
-        <p>
-                实验内容：
-        </p>
-        <ul>
-            <li>二元对称信道简记为 BSC 信道。</li>
-            <li>其信道为<br /><img src="image/BSC.png" /></li>
-            <li>同学们可以自己思考一下这个页面是怎么实现的。</li>
-        </ul>
-        <hr />
-       
-            
+    </style>
+</head>
+
+<body>
+<!--上传文件-->
+<div id="input">
+ <script>
+   function readLocalFile () {
         
-        <input type="button" value="弹出输入的内容" onclick="aler()" />
-        <input type="button" value="返回实验说明页" onclick="window.location.href='Huffman.html'" />
-		</div>
-		<br  />
-		<div class="down">
-		<div class="left">
-			请输入您的英文文本：
-			<textarea id="textin" rows="5">hello world！</textarea>
-		</div>
-		<div class="cent">
+        var localFile = document.getElementById("uploadFile").files[0];
+        alert("文件名："+localFile.name+"文件类型："+localFile.type+"文件大小："+localFile.size);
+        var reader = new FileReader();
+        var content;
+        reader.readAsText(localFile,"UTF-8");
+        reader.onload = function(event) {
+            content = event.target.result;
+            document.getElementById("fileContent").value = content;
+        }
+        reader.onerror = function(event) {
+            alert("File could not be read! Code " + event.target.error.code);
+        }
+    }
+ </script>
+  
+    <section>
+    	<form>
+    	导入待压缩文件：
+        <input type="file" id="uploadFile" onchange="readLocalFile()";/>
+        <input type="reset" value="清空"/>
+        <div>所选文件的内容如下：<br /><textarea id="fileContent" rows="15" cols="35"></textarea></div>
+        </form>
+    </section>
+    </div>
+    
+
+    
+<!--导出对照表文件-->
+<div id="duizhao">
+    <input type="button" id="export" value="导出对照表" onclick="exHuffman()"/>	
+    
+	<script type="text/javascript" src="FileSaver.js" charset="utf-8"></script>
+	
+	<script>
+		function exHuffman(){
+		    var contentHuffman = document.getElementById("Huffman").value;
+		     alert('对照表的内容为：'+contentHuffman);
+		    var blob = new Blob([contentHuffman], {type: "text/plain;charset=utf-8"});
+		    //saveAs(blob,filename)
+		    saveAs(blob, "huffman.txt");
+		}
+	</script>
+		<form>
+			哈夫曼编码对照表如下：<br />
+			<!--<input type="reset" value="清空"/>-->
+			<textarea id="Huffman" rows="15" cols="35"></textarea>
 			
-		</div>
-		<div class="right">
-			您的压缩后文本是：
-			<textarea id="textout" rows="5"></textarea>
-		</div>
-		</div>
-		<br  /><br  /><br  />
+		</form>
+	</div>
+	
+<!--导出压缩后文件-->
+<div id="zip">
+    <input type="button" id="export" value="导出压缩文件" onclick="zip()"/>
+	<script type="text/javascript" src="FileSaver.js" charset="utf-8"></script>
+	<input type="button" value="压缩" onclick="hafu()" />
+	<input type="button" value="解压缩"  />
+</div>
+
+<input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='Huffman.html'" />
+
+ <!--编码-->
+<script> 
+		var zip;//定义压缩文件的内容用变量zip存储
+		var huffman=function(s){ 
+			function List(){ 
+				 var list=[]; 
+				//节点插入函数
+				list.insert= function(node){ 
+					if(this.length==0) return this.push(node);
+					var l=0,r=this.length-1,v=node.v,x; 
+					while(r-l>1) //二分查找
+						if(this[x=l+(r-l)/2|0].v<v){
+							r=x;
+						}else 
+							l=x;
+							x=v-this[l].v<this[r].v-v?r+1:l; 
+							this.splice(x,0,node); 
+				 } 
+				return list; 
+			} 
+			//节点操作函数
+			function Node(a,b){ 
+			      if(a.v&&b.v) {
+			      	this.a=a,this.b=b,this.v=a.v+b.v;
+			      }
+			      else this.v=a,this.c=b; 
+			} 
+		  //返回函数
+			return function(s){ 
+				var map={},list=new List,result={},i,c; 
+			    //建立有序频率序列
+			    //把序列中的值以“key(字符):value(次数)”的形式存在map对象中
+			    for(i=0;c=s.charAt(i);i++) {c in map? map[c]++:map[c]=1; }
+			    //遍历对象map的各个属性，并将其属性和值以Node节点的形式插入数组list中；
+			    for(i in map) list.push(new Node(map[i],i)); 
+			    //根据V(次数)的值对数组进行倒序排序
+			    list.sort(function(a,b){return b.v-a.v;}); 
+			    //建树
+			 while(list.length>1) 
+			    //删除最后两个节点，合并最小的两个节点并插入合并节点
+			 list.insert(new Node(list.pop(),list.pop())); 
+			    //遍历叶节点，获取结果集result 
+			//result[o]:以对象属性的方式存储字符，result[o].v存储该字符路径的十进制表示、result[o].d-记录该字符在树的第几层；
+			  (function callee(o,v,d){ 
+			     if(o.c)return result[o.c] = [v,d]; 
+			    callee(o.a,v*2,d+1),callee(o.b,v*2+1,d+1); 
+			  })(list[0],0,0); 
+			   //返回这个result对象
+			  return result; 
+			 } 
+		}(); 
+//输出结果		
+		function hafu(){
+		  var i, bin;
+		  var results = "哈夫曼编码：";
+		  var test = document.getElementById('fileContent').value;
+		  var r = huffman(test);
+		  for(i in r){
+		    //r[i][0]存储的是result[o].v，字符路径的十进制表示
+		   bin = r[i][0].toString(2);
+		    //r[i][1]存储的是result[o].d，记录该字符在树的第几层，以便十进制转二进制后补0
+		   results += (i+"-"+Array(r[i][1]-bin.length+1).join(0)+bin+", ");
+		//console.log(i,Array(r[i][1]-bin.length+1).join(0)+bin);
+		 }
+		  alert(results);
+		  document.getElementById('Huffman').innerHTML=results;
+		}
 		
-		<script>
-			
-			function aler(){
-				var str = document.getElementById('textin').value;
-				alert(str);
+		function zip(){
+			var a,bin;
+			var out = '';
+			var re = document.getElementById('fileContent').value;
+			var te = huffman(re);
+			for(var i=0;i<re.length;i++){
+				a = re[i];
+				bin = te[a][0].toString(2);
+				out += (Array(te[a][1]-bin.length+1).join(0)+bin);
 			}
 			
-		</script>
-	</body>
+		var blob = new Blob([out], {type: "text/plain;charset=utf-8"});
+		//saveAs(blob,filename)
+		saveAs(blob, "zip.txt");
+		}
+	</script>
+	
+</body>
 </html>
