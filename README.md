@@ -15,11 +15,11 @@
 - 页面开发
   - [首页](https://liujinmenghaoren.github.io/info-theory-lab/home.html)
  
-  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/selfINfo.html)（基本完成）
+  - [自信息量函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/selfINfo.html)
  
-  - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/SeriesChannel.html)（基本完成）
+  - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/SeriesChannel.html)
  
-  - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（一元熵函数已经完成，二元熵函数的三维图还没有着落呢）
+  - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（二元熵函数的三维图还没有着落呢）
  
   - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（基本完成）
  

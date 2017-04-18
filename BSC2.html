@@ -2,34 +2,38 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>BSC信道仿真模拟</title>
+		<title>BSC 信道仿真模拟</title>
 		<style>
 			body{
 				width: 1100px;
 				margin: 0 auto;
 				
 			}
-			canvas{
-				border: solid 1px #000;
-				display: block;
+			#image1{
+				height: 1px;
+				width: 1px;
 			}
-			.all{
-        		position: relative;
-        	}
+			#image2{
+				height: 1px;
+				width: 1px;
+			}
 			#input{
 				float: left;
 			}
-			#output{
-				float: right;
-			}
-			
 			.cent{
         		width: 100%;
         		position: absolute;
-        		left: 360px;
+        		left: 780px;
         		top: 80px;
         	}
-        	#maybe{
+			#output{
+				float: right;
+			}
+			canvas{
+				border:1px solid #d3d3d3;
+				display: block;
+			}
+			#maybe{
         		position: absolute;
         		top: 330px;
         		left: 590px;
@@ -41,57 +45,60 @@
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript" src="js/getcanvaspixelcolor.js"></script>
-		<script>
-        	// 定义所有的全局变量
-	        // 原始表现
-	        window.onload = function(){
-	        	// 下面是对输入窗口的绘制
-	        	var canvas1 = document.getElementById('canvas1');
-	        	var context1 = canvas1.getContext('2d');//使用context进行绘制
-	        	for (var i=0;i<100;i++){
-	        		for (var j=0;j<100;j++){//i是列数，j是行数。
-	        			if((i+j)%2 == 0){
-	        				context1.fillStyle='#000';
-							context1.beginPath();
-							context1.fillRect(3*i,3*j,3,3);
-							context1.closePath();
-							context1.fill();
-	        			}else{
-	        				context1.fillStyle='#fff';
-							context1.beginPath();
-							context1.fillRect(3*i,3*j,3,3);
-							context1.closePath();
-							context1.fill();
-	        			}
-	        		}
-	        	}	
-	        	// 下面是对输出窗口的绘制
-	        	var canvas2 = document.getElementById('canvas2');
-	        	var context2 = canvas2.getContext('2d');//使用context进行绘制
-	        	for (var k=0;k<100;k++){
-	        		for (var l=0;l<100;l++){//i是列数，j是行数。
-	        			if((k+l)%2 == 0){
-	        				context2.fillStyle='#000000';
-							context2.beginPath();
-							context2.fillRect(3*k,3*l,3,3);
-							context2.closePath();
-							context2.fill();
-	        			}else{
-	        				context2.fillStyle='#FFFFFF';
-							context2.beginPath();
-							context2.fillRect(3*k,3*l,3,3);
-							context2.closePath();
-							context2.fill();
-	        			}
-	        		}
-	        	}
-	        }	
-	        	
-	        //用概率产生变换个数
+		<div id="input">
+		
+		<h1>这是信源图片：</h1>
+        <canvas id="canvas1" width="300" height="300" >
+        您的浏览器不支持canvas。
+        </canvas>
+		<img id="image1" src="image/dilbert.bmp" />
+        </div>
+        
+        <div class="cent">
+			请输入错误概率 p： 	
+			<input id="in" type="number" min="0" max="1" step="0.01" value="0"  />
+	
+			<button id="yes" type="button" onclick="change()">确定</button>
+			<p>（请变换数值前刷新页面）</p>
+			<input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
+		</div>
+        
+        <div id="output">
+        	<h1>这是接收到的图片：</h1>
+        	<canvas id="canvas2" width="300" height="300"></canvas>
+        	<!--请输入概率 p:
+        	<input type="text" id="in"  />
+        	<button id="en" onclick="change()">颜色更换</button>
+        	<button id="en" onclick="rou()">随机数验证</button>-->
+        	<img id="image2" src="image/dilbert.bmp"  />
+        </div>
+        <script type="text/javascript" src="js/getcanvaspixelcolor.js"></script>
+        <script>
+        	var canvas1 = document.getElementById('canvas1');
+	        var context1 = canvas1.getContext('2d');//使用context进行绘制
+			var img1 = document.getElementById('image1');
+			img1.onload = function(){
+				context1.beginPath();
+				context1.drawImage(img1,0,0);
+				context1.closePath();
+			}
+			
+        </script>
+        <script>
+	        var canvas2 = document.getElementById('canvas2');
+		    var context2 = canvas2.getContext('2d');//使用context进行绘制
+			var img2 = document.getElementById('image2');
+			img2.onload = function(){
+				context2.beginPath();
+				context2.drawImage(img2,0,0);
+				context2.closePath();
+			}
+        </script>
+        <script>
+        	//用概率产生变换个数
 	        function p(){
 	        	var p = document.getElementById('in').value;
-	        	return p1 = 10000*p;
+	        	return p1 = 90000*p;
 	        }
 	       
 	        // 产生随机数
@@ -104,7 +111,7 @@
 	        	p()
 	        	//产生第一个数组，表示x坐标
 	        	while(arr1.length<p1){
-	        		var aa = randomFn(0,9999);
+	        		var aa = randomFn(0,89999);
 	        		var onOff = true;
 	        		for (var i=0;i<arr1.length;i++){
 	        			if(arr1[i] == aa){
@@ -126,16 +133,16 @@
 	        function change(){
 	        	rou();
 	        	var n = arr1.length;
-	        	alert(n);
+	        	alert('传输错误的像素个数是：'+n);
 		        var num,lie,hang,x,y;
 		        var canvas3 = document.getElementById('canvas2');
 			    var context3 = canvas3.getContext('2d');//使用context进行绘制
 		        for (var i=0;i<n;i++){
 		        	num = arr1[i];
-		        	lie = num%100;
-		        	hang = (num-lie)/100;
-		        	x=3*lie;
-		        	y=3*hang
+		        	lie = num%300;
+		        	hang = (num-lie)/300;
+		        	x=lie;
+		        	y=hang
 //		        	alert(x);
 			        	var hexColor = document.getElementById("canvas2").getPixelColor(x, y).hex;
 //			        	alert(hexColor);
@@ -143,40 +150,19 @@
 			        		context3.fillStyle='#FFFFFF';
 							context3.globalCompositeOperation="source-over";
 							context3.beginPath();
-							context3.fillRect(x,y,3,3);
+							context3.fillRect(x,y,1,1);
 							context3.closePath();
 							context3.fill();
 			        	}else{
 			        		context3.fillStyle='#000000';
 							context3.globalCompositeOperation="source-over";
 							context3.beginPath();
-							context3.fillRect(x,y,3,3);
+							context3.fillRect(x,y,1,1);
 							context3.closePath();
 							context3.fill();
 			        	}
 	        	}
 		    }
         </script>
- 		<div class="all">
- 		<div id="input">
-        	<h1>这是信源图片</h1>
-        	<canvas id="canvas1" width="300" height="300"></canvas>
-        </div>
-        
-        <div class="cent">
-			请输入错误概率 p： 	
-			<input id="in" type="number" min="0" max="1" step="0.01" value="0"  />
-	
-			<button id="yes" type="button" onclick="change()">确定</button>
-			<p>（请变换数值前刷新页面）</p>
-			<input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='BSC.html'" />
-		</div>
-        
-        <div id="output">
-        	<h1>这是接收到的图片</h1>
-        	<canvas id="canvas2" width="300" height="300"></canvas>
-        	
-        </div>
-     	</div>   
 	</body>
 </html>
