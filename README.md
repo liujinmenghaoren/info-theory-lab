@@ -21,7 +21,7 @@
  
   - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（二元熵函数的三维图还没有着落呢）
  
-  - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)（基本完成）
+  - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)
  
   - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
  
