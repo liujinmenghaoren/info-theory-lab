@@ -1,6 +1,6 @@
 # 信息科学基础课程实验的在线可视化
 
-### [思维导图](http://naotu.baidu.com/file/7667feee318877391441f9ae4ed2da8e?token=f41be2c1ea8a7b1c)（待完善）
+### [思维导图](http://naotu.baidu.com/file/7667feee318877391441f9ae4ed2da8e?token=f41be2c1ea8a7b1c)（完善中）
 
 
 ### 需求分析
