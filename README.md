@@ -51,8 +51,3 @@
   - 白盒测试（待添加）
   - 黑盒测试（待添加）
 - 系统的应用与实际意义（待添加）
-
-| 任务     | 进度  |  
-| :---: | :-----:|  
-|  1    |![](https://github.com/wangding/courses/images/present100.png)|  
-|  2    |![](images/present100.png) |
