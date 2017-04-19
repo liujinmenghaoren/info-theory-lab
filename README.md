@@ -1,15 +1,12 @@
 # 信息科学基础课程实验的在线可视化
 
-## [思维导图](http://naotu.baidu.com/file/7667feee318877391441f9ae4ed2da8e?token=f41be2c1ea8a7b1c)（待完善）
+### [思维导图](http://naotu.baidu.com/file/7667feee318877391441f9ae4ed2da8e?token=f41be2c1ea8a7b1c)（待完善）
 
-## 目录
 
-### [需求描述](requirement.md)（待完善）
-
+### 需求分析
+- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)（首页和自信息量已完成）
 ### 设计
 - 概要设计
-
-- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)（首页和自信息量已完成）
 
 ### 开发
 - 页面开发
