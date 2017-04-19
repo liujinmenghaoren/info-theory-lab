@@ -37,7 +37,7 @@
 - 实验课在线辅助教学的背景
   - 上课现状
   - 实验内容
-    - 自信息量
+    - 自信息量 ![](https://github.com/wangding/courses/images/present100.png)
     - 熵函数（待添加）
     - BSC信道仿真模拟（待添加）
     - 串联信道容量（待添加）
