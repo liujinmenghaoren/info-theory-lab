@@ -2,9 +2,15 @@
 
 ### [思维导图](http://naotu.baidu.com/file/7667feee318877391441f9ae4ed2da8e?token=f41be2c1ea8a7b1c)（完善中）
 
-
 ### 需求分析
-- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)（首页和自信息量已完成）
+- [界面原型设计](https://modao.cc/app/zvWIKW991DVRsUtEj29d2Wb6KVA26jL)
+  - 首页
+  - 自信息量
+  - 熵函数（进行中）
+  - 串联信道（待添加）
+  - BSC（待添加）
+  - 哈夫曼编码（待添加）
+  - 汉明编码（待添加）
 ### 设计
 - 概要设计
 
