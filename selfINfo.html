@@ -50,7 +50,8 @@
         <hr />
        
             请输入密度：
-        <input type="text" id="level" title="lvl" placeholder="10"/>
+        <input type="text" id="level" title="lvl" placeholder="10"/>（请输入1至1000之间的整数）
+        
         <input type="button" value="确定" onclick="I()" />
         <input type="button" value="返回首页" onclick="window.location.href='home.html'" />
    	    </div>
@@ -144,20 +145,20 @@
 	    function I(){
 			var n = document.getElementById('level').value;   // 代表密度
 	
-		   	if (n > 0 && n <= 1000)	{	//当输入0-1000之间的数时，绘制图像
+		   	if (n > 1 && n <= 1000)	{	//当输入0-1000之间的数时，绘制图像
 		   		pri(n);
 		   	}
 		   	else if(n == "")	{	//当输入为空时，默认绘制密度为10的图像
 		  		pri(10);
 		   	}
-			else if(n < 0)	{	//当输入小于0时，提示错误
+			else if(n < 1)	{	//当输入小于0时，提示错误
 				err("无法计算概率！");
 		   	}
 			else if(n > 1000)	{	//当输入大于1000时，提示错误
 				err("概率分布密度太大，不宜计算！");
 		  	}
 		  	else	{	//当输入非法字符时，提示错误
-				err("请输入0到1000之间的数字！");
+				err("请输入1到1000之间的数字！");
 		  	}
 		}
 		</script>
