@@ -22,11 +22,11 @@
  
   - [串联信道容量曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/SeriesChannel.html)
  
-  - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（二元熵函数的三维图还没有着落呢）
+  - [熵函数曲线绘制](https://liujinmenghaoren.github.io/info-theory-lab/entropy.html)（二元熵函数的三维图未实现）
  
   - [BSC 信道仿真](https://liujinmenghaoren.github.io/info-theory-lab/BSC.html)
  
-  - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
+  - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实现）
  
   - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)
 
