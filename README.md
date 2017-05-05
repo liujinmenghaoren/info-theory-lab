@@ -28,7 +28,7 @@
  
   - [Hamming 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Hamming.html)（没有实验原理，没有实验环境）
  
-  - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)（可以得到码表，压缩还有点问题，解压缩未实现）
+  - [Huffman 编码算法](https://liujinmenghaoren.github.io/info-theory-lab/Huffman.html)
 
 ### 测试
 - 黑盒测试
