@@ -4,137 +4,189 @@
 		<meta charset="UTF-8">
 		<title>实验课</title>
 		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
 			.head{
-				background-color: greenyellow;
+				background-color: 	#BFEFFF;
 				height: 90px;
+				margin-bottom: 20px;
 			}
 			.middle{
-				height: 1000px;
-				width: 900px;
-				margin: 0 auto;
-				background-color: gainsboro;
-			}
-			.foot{
-				height: 30px;
-				background-color: gainsboro;
 				
+				width: 100%;
+				margin: auto;
+				/*background-color: #f5f5f5;*/
 			}
 			.title{
 				font-family: "楷体";
 				font-size: 50px;
 				padding-top: 10px;
-				padding-left: 500px;
-			}
-			.one{
-				float: left;
-				background-color: blueviolet;
-				width: 330px;
-				height: 200px;
-				font-family: 微软雅黑;
-				padding-top: 100px;
-				padding-left: 80px;
-				font-size: 50px;
-				margin-top: 10px;
-				margin-left: 10px;
-			}
-			.two{
-				float: right;
-				height: 210px;
-				width: 310px;
-				background-color: cadetblue;
-				font-family: 微软雅黑;
-				font-size: 50px;
-				padding-top: 90px;
-				padding-left: 150px;
-				margin-top: 10px;
-				margin-right: 10px;
+				text-align: center;
+				/*padding-left: 500px;*/
 				
 			}
-			/*.three{
-				float: left;
-				height: 120px;
-				width: 470px;
-				font-family: "微软雅黑";
-				font-size: 40px;
-				padding-top: 80px;
-				padding-left: 70px;
-				background-color: burlywood;
-			}*/
-			.four{
-				float: right;
-				height: 300px;
-				width: 260px;
-				font-family: "微软雅黑";
-				font-size: 65px;
-				background-color: chartreuse;
-				padding-top: 100px;
-				padding-left: 80px;
-				margin-top: 10px;
-				margin-right: 10px;
+			a {
+				color: black;
+				text-decoration: none;
+				display: inline-block;
 			}
-			.five{
-				float: left;
-				height: 260px;
-				width: 390px;
-				font-family: "微软雅黑";
-				font-size: 50px;
-				background-color: #ADFF2F;
-				padding-left: 140px;	
-				padding-top: 70px;
-				margin-top: 10px;
-				margin-left: 10px;
-			}
-			.six{
-				float: left;
-				height: 240px;
-				width: 295px;
-				font-family: "微软雅黑";
-				font-size: 50px;
-				background-color: chocolate;
-				padding-left: 100px;
-				padding-top: 90px;
-				margin-top: 10px;
-				margin-left: 10px;
-				margin-bottom: 10px;
-			}
-			.seven{
-				float: right;
-				height: 140px;
-				width: 420px;
-				font-family: "微软雅黑";
-				font-size: 40px;
-				background-color: crimson;
-				padding-left: 50px;
-				padding-top: 120px;
-				margin-top: 10px;
-				margin-right: 10px;
-				
-			}
-			a{color: black;}
 			a:hover{
 				color: black;
 			}
-			.copy{
-				padding-top: 5px;
+			
+			.normal {
+				margin-top: 10px;
+				height: 350px;
+				width: 100%;
+				font-family: "微软雅黑";
+				/*background-color: chartreuse;*/
+				/*border: 1px solid #999;*/
+				position: relative;
+			}
+			.normal:hover {
+				background-color: 	#BFEFFF;
+				box-shadow: 5px 5px 10px #e8e8e8;
+				top: -1px;
+				/*height: 302px;*/
+			}
+			.div-img-left {
+				position: absolute;
+				left: 50px;
+				display: inline-block;
+				/*border: 1px solid #999;*/
+				height: 100%;
+				width: 598px;
 				text-align: center;
+	
+			}
+			.div-img-right {
+				position: absolute;
+				right: 50px;
+				display: inline-block;
+				/*border: 1px solid #999;*/
+				height: 100%;
+				width: 598px;
+				text-align: center;
+	
+			}
+			.div-text-right {
+				width: 540px;
+				position: absolute;
+				top: 20px;
+				right: 50px;
+				text-align: left;
+				display: inline-block;
+				height: 100%;
+				
+			}
+			.div-text-left {
+				width: 540px;
+				position: absolute;
+				top: 20px;
+				left: 50px;
+				text-align: right;
+				display: inline-block;
+				height: 100%;
+				
+			}
+			img {
+				height: 350px;
+			}
+			.every-title {
+				font-size: 32px;
+			}
+			.foot{
+				height: 40px;
+				background-color: #f5f5f5;
+				
+			}
+			.copy{
+				
+				text-align: center;
+				line-height: 40px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="head">
-			<p class="title">实&nbsp;&nbsp;&nbsp;验&nbsp;&nbsp;&nbsp;课</p>
+			<p class="title">信息科学基础实验平台</p>
 		</div>
 		<div class="middle">
-			<div class="one" ><a href="selfINfo.html">自信息量函<br>数曲线绘制</a></div>
-			<div class="two"><a href="entropy.html">熵函数<br>曲线绘制</a></div>
-			<!--<div class="three"><a href="mathematical beauty.html">数学之美（文献阅读）</a></div>-->
-			<div class="four"><a href="BSC.html">BSC信<br>道仿真</a></div>
-			<div class="five"><a href="Hamming.html">Hamming<br>编码算法</a></div>
-			<div class="six"><a href="Huffman.html">Huffman<br>编码算法</a></div>
-			<div class="seven"><a href="SeriesChannel.html">串联信道容量曲线绘制</a></div>
+			<div class="one normal" >
+				<div class="div-img-left">
+					<a href="selfINfo.html">
+						<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=19165882,3660313102&fm=15&gp=0.jpg" alt="自信息量函数曲线绘制">
+					</a>
+				</div>
+				<div class="div-text-right">
+					<a href="selfINfo.html"><p class="every-title">自信息量函数曲线绘制</p></a>
+				</div>
+			</div>
+			<div class="two normal">
+				<div class="div-text-left">
+					<a href="entropy.html"><p class="every-title">熵函数曲线绘制</p></a>
+				</div>
+				<div class="div-img-right">
+					<a href="entropy.html">
+						<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2527412271,663925543&fm=27&gp=0.jpg" alt="熵函数曲线绘制">
+					</a>
+				</div>
+			</div>
+			<div class="four normal">
+				<div class="div-img-left">
+					<a href="BSC.html">
+						<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=734937447,652793745&fm=27&gp=0.jpg" alt="BSC信道仿真">
+					</a>
+				</div>
+				<div class="div-text-right">
+					<a href="BSC.html"><p class="every-title">BSC信道仿真</p></a>
+				</div>
+			</div>
+			<div class="five normal">
+				<div class="div-text-left">
+					<a href="Hamming.html"><p class="every-title">Hamming编码算法</p></a>
+				</div>
+				<div class="div-img-right">
+					<a href="Hamming.html">
+						<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3657869178,356309669&fm=27&gp=0.jpg" alt="Hamming编码算法">
+					</a>
+				</div>
+			</div>
+			<div class="six normal">
+				<div class="div-img-left">
+					<a href="Huffman.html">
+						<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3330895622,3116023435&fm=27&gp=0.jpg" alt="Huffman编码算法">
+					</a>
+				</div>
+				<div class="div-text-right">
+					<a href="Huffman.html"><p class="every-title">Huffman编码算法</p></a>
+				</div>
+			</div>
+			<div class="seven normal">
+				<div class="div-text-left">
+					<a href="SeriesChannel.html"><p class="every-title">串联信道容量曲线绘制</p></a>
+				</div>
+				<div class="div-img-right">
+					<a href="SeriesChannel.html">
+						<img src="http://www.shangxueba.com/ask/uploadfile/20170728/201707281111230398.png" alt="串联信道容量曲线绘制">
+					</a>
+				</div>
+			</div>
+			<div class="three normal">
+				<div class="div-img-left">
+					<a href="mathematical beauty.html">
+						<img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3725750442,2317588332&fm=27&gp=0.jpg" alt="数学之美（文献阅读）">
+					</a>
+				</div>
+				<div class="div-text-right">
+					<a href="mathematical beauty.html"><p class="every-title">数学之美（文献阅读）</p></a>
+				</div>
+			</div>
 		</div>
 		<div class="foot">
-			<p class="copy">&copy;2017 —— 今</p>
+			<p class="copy">&copy;2017.04 —— 今</p>
 		</div>
 	</body>
 </html>
