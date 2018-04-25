@@ -8,7 +8,15 @@
     <style>
     	body{
     		margin: 50px 150px;
+    		
+    	}
+    	.all{
+    		margin: 0 auto;
+    		width: 1100px;
     		position: relative;
+    	}
+    	#node{
+    		margin-left: 200px;
     	}
     	#input{
     		float: left;
@@ -33,7 +41,9 @@
 </head>
 
 <body>
+<div class="all">
 <!--上传文件-->
+
 <div id="input">
  <script>
    function readLocalFile () {
@@ -90,14 +100,14 @@
 	
 <!--导出压缩后文件-->
 <div id="zip">
-    <input type="button" id="export" value="导出压缩文件" onclick="zip()"/>
+    <!--<input type="button" id="export" value="导出压缩文件" onclick="zip()"/>-->
 	<script type="text/javascript" src="FileSaver.js" charset="utf-8"></script>
-	<input type="button" value="压缩" onclick="hafu()" />
-	<input type="button" value="解压缩"  />
+	<input id="node" type="button" value="编码" onclick="hafu()" />
+	
 </div>
 
 <input id="maybe" type="button" value="返回实验说明页" onclick="window.location.href='Huffman.html'" />
-
+</div>
  <!--编码-->
 <script> 
 		var zip;//定义压缩文件的内容用变量zip存储
@@ -130,7 +140,7 @@
 				var map={},list=new List,result={},i,c; 
 			    //建立有序频率序列
 			    //把序列中的值以“key(字符):value(次数)”的形式存在map对象中
-			    for(i=0;c=s.charAt(i);i++) {c in map? map[c]++:map[c]=1; }
+			    for(i=0;c=s.charAt(i);i++) c in map? map[c]++:map[c]=1; 
 			    //遍历对象map的各个属性，并将其属性和值以Node节点的形式插入数组list中；
 			    for(i in map) list.push(new Node(map[i],i)); 
 			    //根据V(次数)的值对数组进行倒序排序
@@ -147,12 +157,13 @@
 			  })(list[0],0,0); 
 			   //返回这个result对象
 			  return result; 
+//			  alert(map);
 			 } 
 		}(); 
 //输出结果		
 		function hafu(){
 		  var i, bin;
-		  var results = "哈夫曼编码：";
+		  var results = "哈夫曼码表为：";
 		  var test = document.getElementById('fileContent').value;
 		  var r = huffman(test);
 		  for(i in r){
@@ -160,27 +171,28 @@
 		   bin = r[i][0].toString(2);
 		    //r[i][1]存储的是result[o].d，记录该字符在树的第几层，以便十进制转二进制后补0
 		   results += (i+"-"+Array(r[i][1]-bin.length+1).join(0)+bin+", ");
+		   
 		//console.log(i,Array(r[i][1]-bin.length+1).join(0)+bin);
 		 }
-		  alert(results);
+//		  alert();
 		  document.getElementById('Huffman').innerHTML=results;
 		}
 		
-		function zip(){
-			var a,bin;
-			var out = '';
-			var re = document.getElementById('fileContent').value;
-			var te = huffman(re);
-			for(var i=0;i<re.length;i++){
-				a = re[i];
-				bin = te[a][0].toString(2);
-				out += (Array(te[a][1]-bin.length+1).join(0)+bin);
-			}
-			
-		var blob = new Blob([out], {type: "text/plain;charset=utf-8"});
-		//saveAs(blob,filename)
-		saveAs(blob, "zip.txt");
-		}
+//		function zip(){
+//			var a,bin;
+//			var out = '';
+//			var re = document.getElementById('fileContent').value;
+//			var te = huffman(re);
+//			for(var i=0;i<re.length;i++){
+//				a = re[i];
+//				bin = te[a][0].toString(2);
+//				out += (Array(te[a][1]-bin.length+1).join(0)+bin);
+//			}
+//			
+//		var blob = new Blob([out], {type: "text/plain;charset=utf-8"});
+//		//saveAs(blob,filename)
+//		saveAs(blob, "zip.txt");
+//		}
 	</script>
 	
 </body>
